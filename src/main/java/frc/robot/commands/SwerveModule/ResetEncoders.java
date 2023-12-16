@@ -3,11 +3,11 @@ package frc.robot.commands.SwerveModule;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.SwerveModule;
 
-public class Move extends CommandBase {
+public class ResetEncoders extends CommandBase {
 
     private final SwerveModule swerveModule;
 
-    public Move(SwerveModule swerveModule) {
+    public ResetEncoders(SwerveModule swerveModule) {
         this.swerveModule = swerveModule;
         addRequirements(this.swerveModule);
     }
@@ -18,11 +18,10 @@ public class Move extends CommandBase {
 
     @Override
     public void execute() {
-        this.swerveModule.set(0.2, 0.2);
+        this.swerveModule.resetEnconders();
     }
 
     @Override
     public void end(boolean isInterrupted) {
-        this.swerveModule.set(0, 0);
     }
 }
